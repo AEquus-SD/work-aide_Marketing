@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Aide Marketing</title>
+</head>
+<body>
+    <!-- Pastyour HTML content here -->
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Listing Marketing Workflow - Full Guide</title>
+    <!-- Load Tailwind CSS for modern, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for visual grouping */
+        .section-header {
+            background-color: #1f2937; /* Dark gray background */
+            color: #ffffff;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-align: center;
+        }
+        /* Style for high priority/attention rows */
+        .priority-row {
+            background-color: #fffbeb; /* Light yellow background */
+        }
+        .takedown-row {
+            background-color: #fee2e2; /* Light red for urgency */
+        }
+        /* Custom hover effect */
+        #workflowTable tbody tr:hover {
+            background-color: #e5e7eb;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans p-4 sm:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-extrabold text-gray-800">Office Listing Marketing Work Aide</h1>
+            <p class="text-gray-600 mt-2">A complete guide for listing preparation, execution, and maintenance.</p>
+        </header>
+
+        <!-- Search Input -->
+        <div class="mb-6 p-4 bg-white shadow-lg rounded-lg">
+            <label for="searchInput" class="block text-sm font-medium text-gray-700 mb-2">Search All Steps:</label>
+            <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="E.g., 'Gemini', 'Craigslist', '48 Hours', 'Takedown'..."
+                   class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out">
+        </div>
+
+        <!-- Main Workflow Table -->
+        <div class="bg-white shadow-xl rounded-lg overflow-x-auto">
+            <table id="workflowTable" class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/12">Step</th>
+                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/4">Action / Platform</th>
+                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-2/5">Details / Source / Frequency</th>
+                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/6">Type / Responsibility</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    
+                    <!-- ---------------------------------------------------------------------- -->
+                    <!-- SECTION: PREPARATION (Gathering Assets and Copy) -->
+                    <!-- ---------------------------------------------------------------------- -->
+                    <tr class="bg-gray-200"><td colspan="4" class="section-header">1.0 PREPARATION (Gathering Assets and Copy)</td></tr>
+                    
+                    <tr class="priority-row">
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">1.01</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Identify New or Updated Listing</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Notice from Agent or Broker/Admin.</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">N/A</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">1.02</td>
+                        <td class="px-4 py-3 text-sm text-gray-900">Verify Core Data</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Confirm essential specs (Rate, SF, Address, Availability). Source: Buildium / SDMLS</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Buildium / SDMLS</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">1.03</td>
+                        <td class="px-4 py-3 text-sm text-gray-900">Gather Photos & Plans</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Check Google Drive for any supplemental files. Source: Buildium / SDMLS / Google Drive</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Google Drive</td>
+                    </tr>
+                    <tr class="priority-row">
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">1.04</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Generate Ad Copy</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Prompt Gemini to create copy tailored for each platform (short for IG/FB, long for Craigslist/Rental sites) using the verified data.</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Google Gemini</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">1.05</td>
+                        <td class="px-4 py-3 text-sm text-gray-900">Edit Photos (if needed)</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Perform necessary edits if photos are blurry/incorrectly sized. May include watermarking or basic touch-up.</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Google Gemini / Photo Editor</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">1.06</td>
+                        <td class="px-4 py-3 text-sm text-gray-900">Retrieve Credentials</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Locate and open the file containing all platform usernames and passwords. Forward to Rommel Reyes or Jon Agsalud if issues arise.</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Shared Google Doc</td>
+                    </tr>
+
+                    <!-- ---------------------------------------------------------------------- -->
+                    <!-- SECTION: EXECUTION (Platform Posting Workflow) -->
+                    <!-- ---------------------------------------------------------------------- -->
+                    <tr class="bg-gray-200"><td colspan="4" class="section-header">2.0 EXECUTION (Platform Posting Workflow)</td></tr>
+                    
+                    <!-- Priority Posts -->
+                    <tr class="priority-row">
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">2.01</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Facebook (FB)</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">**Type: Personal/Groups.** Post to designated commercial RE FB Groups. Use short, engaging copy (Gemini).</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
+                    </tr>
+                    <tr class="priority-row">
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">2.02</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Facebook (FB)</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">**Type: Paid Ads.** Set up an official paid ad campaign using approved photos/copy (if budget is allocated). Link directly to the FB page.</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
+                    </tr>
+                    <tr class="priority-row">
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">2.03</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Instagram (IG)</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">**Type: Post/Story/Paid.** Post high-quality, edited photos w/ punchy copy (Gemini). Use relevant hashtags. Run Paid Ads if budget is allocated.</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
+                    </tr>
+                    
+                    <!-- Secondary Posts -->
+                    <tr>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">2.04</td>
+                        <td class="px-4 py-3 text-sm text-gray-900">Craigslist</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">**Type: Direct Entry.** Post under the appropriate section. Use long, descriptive copy (Gemini). Must be refreshed frequently.</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">2.05</td>
+                        <td class="px-4 py-3 text-sm text-gray-900">SDMLS</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">**Type: Confirm/Sync.** Confirm listing is active and accurate. If this system syncs to other sites, ensure the sync is working.</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">2.06</td>
+                        <td class="px-4 py-3 text-sm text-gray-900">Rental.com</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">**Type: Direct Entry.** Manually create the listing using the full details from Buildium/SDMLS.</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">2.07</td>
+                        <td class="px-4 py-3 text-sm text-gray-900">Apartments.com</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">**Type: Direct Entry.** Manually create the listing using the full details and media. Verify if it requires a paid account or is synced.</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
+                    </tr>
+                    
+                    <!-- Email Marketing -->
+                    <tr class="bg-gray-100"><td colspan="4" class="px-4 py-3 text-center text-sm font-medium text-gray-500 uppercase tracking-wider">Email Marketing</td></tr>
+                    <tr>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">2.08</td>
+                        <td class="px-4 py-3 text-sm text-gray-900">Email Blast</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Use the company's designated email marketing tool (e.g., Mailchimp). Design a branded blast using photos and long-copy. Send to the established client/broker mailing list.</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
+                    </tr>
+
+                    <!-- ---------------------------------------------------------------------- -->
+                    <!-- SECTION: MAINTENANCE, REVIEW, AND TAKEDOWN -->
+                    <!-- ---------------------------------------------------------------------- -->
+                    <tr class="bg-gray-200"><td colspan="4" class="section-header">3.0 MAINTENANCE, REVIEW, AND TAKEDOWN</td></tr>
+                    
+                    <tr class="priority-row">
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">3.01</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Listing Review & Refresh</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">**Frequency: Every 48 hours.**</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">3.02</td>
+                        <td class="px-4 py-3 text-sm text-gray-900">Actions During Review</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Check all platforms for accuracy (especially Craigslist). Refresh or re-post Craigslist ads as needed to maintain visibility. Respond to any direct inquiries.</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">3.03</td>
+                        <td class="px-4 py-3 text-sm text-gray-900">"Off-Market" Notification</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Immediate email/verbal notice from **Broker/Listing Agent**.</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Broker/Agent</td>
+                    </tr>
+                    <tr class="takedown-row">
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">3.04</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Immediate Takedown</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">**Within 1 hour** of notification (unless instructed otherwise for marketing purposes).</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You) / Jon Agsalud</td>
+                    </tr>
+                    <tr class="takedown-row">
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">3.05</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Final Takedown</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Log into **Buildium** and **SDMLS** and officially change the status to "Leased" or "Off-Market."</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You) / Jon Agsalud</td>
+                    </tr>
+                    <tr class="takedown-row">
+                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">3.06</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Remove from all Sites</td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Delete the posting on every single platform: Facebook, Instagram, Craigslist, Rental.com, Apartments.com.</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<script>
+    /**
+     * JavaScript function to filter the table rows based on the search input.
+     */
+    function filterTable() {
+        var input, filter, table, tr, td, i, j, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("workflowTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows (starting at 1 to skip header)
+        for (i = 0; i < tr.length; i++) {
+            // Check if the current row is a section header (we don't want to hide these)
+            if (tr[i].getElementsByTagName("td")[0] && tr[i].getElementsByTagName("td")[0].classList.contains('section-header')) {
+                continue;
+            }
+            
+            // Assume the row should be hidden unless a match is found
+            var rowMatch = false;
+            
+            // Loop through all table cells (td) in the current row
+            td = tr[i].getElementsByTagName("td");
+            for (j = 0; j < td.length; j++) {
+                if (td[j]) {
+                    txtValue = td[j].textContent || td[j].innerText;
+                    // Check if the current cell value matches the filter
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        rowMatch = true;
+                        break; // Exit the inner loop once a match is found in the row
+                    }
+                }
+            }
+
+            // Display or hide the row based on the search result
+            if (rowMatch) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
