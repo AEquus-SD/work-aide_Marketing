@@ -7,7 +7,7 @@
 </head>
 <body>
     <!-- Pastyour HTML content here -->
-     <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -50,6 +50,38 @@
             background-color: #e5e7eb;
             cursor: pointer;
         }
+        /* New styles for the completed row */
+        .completed {
+            background-color: #f0f0f0 !important; /* Grey background */
+            opacity: 0.6; /* Greyed-out effect */
+            color: #6b7280;
+            position: relative;
+        }
+        /* Style for the 'Complete' text overlay */
+        .complete-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(107, 114, 128, 0.7); /* Semi-transparent gray */
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            pointer-events: none; /* Allows clicks to go through to the checkbox */
+            border-radius: 0.25rem;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s;
+        }
+        .step-cell {
+            position: relative; /* Needed for absolute positioning of overlay */
+        }
+        .completed .complete-overlay {
+            opacity: 1; /* Visible when completed */
+        }
     </style>
 </head>
 <body class="bg-gray-100 font-sans p-4 sm:p-8">
@@ -57,8 +89,17 @@
     <div class="max-w-7xl mx-auto">
         <header class="text-center mb-8">
             <h1 class="text-4xl font-extrabold text-gray-800">Office Listing Marketing Work Aide</h1>
-            <p class="text-gray-600 mt-2">A complete guide for listing preparation, execution, and maintenance.</p>
+            <p class="text-gray-600 mt-2">A complete guide for listing preparation, execution, and maintenance. Check off steps as you complete them!</p>
         </header>
+
+        <!-- FLOWCHART IMAGE INSERTED HERE -->
+        <div class="mb-8 p-4 bg-white shadow-lg rounded-lg flex justify-center">
+            <!-- IMPORTANT: Ensure this image file is named 'Screenshot 2025-09-26 at 16.04.18.png' in your GitHub repo -->
+            <img src="Screenshot 2025-09-26 at 16.04.18.png" 
+                 alt="Visual Flowchart for Marketing Workflow"
+                 class="max-w-full h-auto rounded-lg shadow-md"
+                 style="max-height: 80vh;">
+        </div>
 
         <!-- Search Input -->
         <div class="mb-6 p-4 bg-white shadow-lg rounded-lg">
@@ -72,6 +113,7 @@
             <table id="workflowTable" class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
+                        <th scope="col" class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/12">Done</th>
                         <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/12">Step</th>
                         <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/4">Action / Platform</th>
                         <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-2/5">Details / Source / Frequency</th>
@@ -83,41 +125,47 @@
                     <!-- ---------------------------------------------------------------------- -->
                     <!-- SECTION: PREPARATION (Gathering Assets and Copy) -->
                     <!-- ---------------------------------------------------------------------- -->
-                    <tr class="bg-gray-200"><td colspan="4" class="section-header">1.0 PREPARATION (Gathering Assets and Copy)</td></tr>
+                    <tr class="bg-gray-200"><td colspan="5" class="section-header">1.0 PREPARATION (Gathering Assets and Copy)</td></tr>
                     
-                    <tr class="priority-row">
+                    <tr data-step-id="1.01" class="priority-row">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">1.01</td>
-                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Identify New or Updated Listing</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold step-cell">Identify New or Updated Listing<div class="complete-overlay">COMPLETE</div></td>
                         <td class="px-4 py-3 text-sm text-gray-500">Notice from Agent or Broker/Admin.</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">N/A</td>
                     </tr>
-                    <tr>
+                    <tr data-step-id="1.02">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">1.02</td>
-                        <td class="px-4 py-3 text-sm text-gray-900">Verify Core Data</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 step-cell">Verify Core Data<div class="complete-overlay">COMPLETE</div></td>
                         <td class="px-4 py-3 text-sm text-gray-500">Confirm essential specs (Rate, SF, Address, Availability). Source: Buildium / SDMLS</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Buildium / SDMLS</td>
                     </tr>
-                    <tr>
+                    <tr data-step-id="1.03">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">1.03</td>
-                        <td class="px-4 py-3 text-sm text-gray-900">Gather Photos & Plans</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 step-cell">Gather Photos & Plans<div class="complete-overlay">COMPLETE</div></td>
                         <td class="px-4 py-3 text-sm text-gray-500">Check Google Drive for any supplemental files. Source: Buildium / SDMLS / Google Drive</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Google Drive</td>
                     </tr>
-                    <tr class="priority-row">
+                    <tr data-step-id="1.04" class="priority-row">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">1.04</td>
-                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Generate Ad Copy</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold step-cell">Generate Ad Copy<div class="complete-overlay">COMPLETE</div></td>
                         <td class="px-4 py-3 text-sm text-gray-500">Prompt Gemini to create copy tailored for each platform (short for IG/FB, long for Craigslist/Rental sites) using the verified data.</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Google Gemini</td>
                     </tr>
-                    <tr>
+                    <tr data-step-id="1.05">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">1.05</td>
-                        <td class="px-4 py-3 text-sm text-gray-900">Edit Photos (if needed)</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 step-cell">Edit Photos (if needed)<div class="complete-overlay">COMPLETE</div></td>
                         <td class="px-4 py-3 text-sm text-gray-500">Perform necessary edits if photos are blurry/incorrectly sized. May include watermarking or basic touch-up.</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Google Gemini / Photo Editor</td>
                     </tr>
-                    <tr>
+                    <tr data-step-id="1.06">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">1.06</td>
-                        <td class="px-4 py-3 text-sm text-gray-900">Retrieve Credentials</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 step-cell">Retrieve Credentials<div class="complete-overlay">COMPLETE</div></td>
                         <td class="px-4 py-3 text-sm text-gray-500">Locate and open the file containing all platform usernames and passwords. Forward to Rommel Reyes or Jon Agsalud if issues arise.</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Shared Google Doc</td>
                     </tr>
@@ -125,59 +173,67 @@
                     <!-- ---------------------------------------------------------------------- -->
                     <!-- SECTION: EXECUTION (Platform Posting Workflow) -->
                     <!-- ---------------------------------------------------------------------- -->
-                    <tr class="bg-gray-200"><td colspan="4" class="section-header">2.0 EXECUTION (Platform Posting Workflow)</td></tr>
+                    <tr class="bg-gray-200"><td colspan="5" class="section-header">2.0 EXECUTION (Platform Posting Workflow)</td></tr>
                     
                     <!-- Priority Posts -->
-                    <tr class="priority-row">
+                    <tr data-step-id="2.01" class="priority-row">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">2.01</td>
-                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Facebook (FB)</td>
-                        <td class="px-4 py-3 text-sm text-gray-500">**Type: Personal/Groups.** Post to designated commercial RE FB Groups. Use short, engaging copy (Gemini).</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold step-cell">Facebook (FB) - Personal/Groups<div class="complete-overlay">COMPLETE</div></td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Post to designated commercial RE FB Groups. Use short, engaging copy (Gemini).</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
                     </tr>
-                    <tr class="priority-row">
+                    <tr data-step-id="2.02" class="priority-row">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">2.02</td>
-                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Facebook (FB)</td>
-                        <td class="px-4 py-3 text-sm text-gray-500">**Type: Paid Ads.** Set up an official paid ad campaign using approved photos/copy (if budget is allocated). Link directly to the FB page.</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold step-cell">Facebook (FB) - Paid Ads<div class="complete-overlay">COMPLETE</div></td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Set up an official paid ad campaign using approved photos/copy (if budget is allocated). Link directly to the FB page.</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
                     </tr>
-                    <tr class="priority-row">
+                    <tr data-step-id="2.03" class="priority-row">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">2.03</td>
-                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Instagram (IG)</td>
-                        <td class="px-4 py-3 text-sm text-gray-500">**Type: Post/Story/Paid.** Post high-quality, edited photos w/ punchy copy (Gemini). Use relevant hashtags. Run Paid Ads if budget is allocated.</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold step-cell">Instagram (IG) - Post/Story/Paid<div class="complete-overlay">COMPLETE</div></td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Post high-quality, edited photos w/ punchy copy (Gemini). Use relevant hashtags. Run Paid Ads if budget is allocated.</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
                     </tr>
                     
                     <!-- Secondary Posts -->
-                    <tr>
+                    <tr data-step-id="2.04">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">2.04</td>
-                        <td class="px-4 py-3 text-sm text-gray-900">Craigslist</td>
-                        <td class="px-4 py-3 text-sm text-gray-500">**Type: Direct Entry.** Post under the appropriate section. Use long, descriptive copy (Gemini). Must be refreshed frequently.</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 step-cell">Craigslist - Direct Entry<div class="complete-overlay">COMPLETE</div></td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Post under the appropriate section. Use long, descriptive copy (Gemini). Must be refreshed frequently.</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
                     </tr>
-                    <tr>
+                    <tr data-step-id="2.05">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">2.05</td>
-                        <td class="px-4 py-3 text-sm text-gray-900">SDMLS</td>
-                        <td class="px-4 py-3 text-sm text-gray-500">**Type: Confirm/Sync.** Confirm listing is active and accurate. If this system syncs to other sites, ensure the sync is working.</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 step-cell">SDMLS - Confirm/Sync<div class="complete-overlay">COMPLETE</div></td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Confirm listing is active and accurate. If this system syncs to other sites, ensure the sync is working.</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
                     </tr>
-                    <tr>
+                    <tr data-step-id="2.06">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">2.06</td>
-                        <td class="px-4 py-3 text-sm text-gray-900">Rental.com</td>
-                        <td class="px-4 py-3 text-sm text-gray-500">**Type: Direct Entry.** Manually create the listing using the full details from Buildium/SDMLS.</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 step-cell">Rental.com - Direct Entry<div class="complete-overlay">COMPLETE</div></td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Manually create the listing using the full details from Buildium/SDMLS.</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
                     </tr>
-                    <tr>
+                    <tr data-step-id="2.07">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">2.07</td>
-                        <td class="px-4 py-3 text-sm text-gray-900">Apartments.com</td>
-                        <td class="px-4 py-3 text-sm text-gray-500">**Type: Direct Entry.** Manually create the listing using the full details and media. Verify if it requires a paid account or is synced.</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 step-cell">Apartments.com - Direct Entry<div class="complete-overlay">COMPLETE</div></td>
+                        <td class="px-4 py-3 text-sm text-gray-500">Manually create the listing using the full details and media. Verify if it requires a paid account or is synced.</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
                     </tr>
                     
                     <!-- Email Marketing -->
-                    <tr class="bg-gray-100"><td colspan="4" class="px-4 py-3 text-center text-sm font-medium text-gray-500 uppercase tracking-wider">Email Marketing</td></tr>
-                    <tr>
+                    <tr class="bg-gray-100"><td colspan="5" class="px-4 py-3 text-center text-sm font-medium text-gray-500 uppercase tracking-wider">Email Marketing</td></tr>
+                    <tr data-step-id="2.08">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">2.08</td>
-                        <td class="px-4 py-3 text-sm text-gray-900">Email Blast</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 step-cell">Email Blast<div class="complete-overlay">COMPLETE</div></td>
                         <td class="px-4 py-3 text-sm text-gray-500">Use the company's designated email marketing tool (e.g., Mailchimp). Design a branded blast using photos and long-copy. Send to the established client/broker mailing list.</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
                     </tr>
@@ -185,41 +241,47 @@
                     <!-- ---------------------------------------------------------------------- -->
                     <!-- SECTION: MAINTENANCE, REVIEW, AND TAKEDOWN -->
                     <!-- ---------------------------------------------------------------------- -->
-                    <tr class="bg-gray-200"><td colspan="4" class="section-header">3.0 MAINTENANCE, REVIEW, AND TAKEDOWN</td></tr>
+                    <tr class="bg-gray-200"><td colspan="5" class="section-header">3.0 MAINTENANCE, REVIEW, AND TAKEDOWN</td></tr>
                     
-                    <tr class="priority-row">
+                    <tr data-step-id="3.01" class="priority-row">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">3.01</td>
-                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Listing Review & Refresh</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold step-cell">Listing Review & Refresh<div class="complete-overlay">COMPLETE</div></td>
                         <td class="px-4 py-3 text-sm text-gray-500">**Frequency: Every 48 hours.**</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
                     </tr>
-                    <tr>
+                    <tr data-step-id="3.02">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">3.02</td>
-                        <td class="px-4 py-3 text-sm text-gray-900">Actions During Review</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 step-cell">Actions During Review<div class="complete-overlay">COMPLETE</div></td>
                         <td class="px-4 py-3 text-sm text-gray-500">Check all platforms for accuracy (especially Craigslist). Refresh or re-post Craigslist ads as needed to maintain visibility. Respond to any direct inquiries.</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
                     </tr>
-                    <tr>
+                    <tr data-step-id="3.03">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">3.03</td>
-                        <td class="px-4 py-3 text-sm text-gray-900">"Off-Market" Notification</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 step-cell">"Off-Market" Notification<div class="complete-overlay">COMPLETE</div></td>
                         <td class="px-4 py-3 text-sm text-gray-500">Immediate email/verbal notice from **Broker/Listing Agent**.</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Broker/Agent</td>
                     </tr>
-                    <tr class="takedown-row">
+                    <tr data-step-id="3.04" class="takedown-row">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">3.04</td>
-                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Immediate Takedown</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold step-cell">Immediate Takedown<div class="complete-overlay">COMPLETE</div></td>
                         <td class="px-4 py-3 text-sm text-gray-500">**Within 1 hour** of notification (unless instructed otherwise for marketing purposes).</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You) / Jon Agsalud</td>
                     </tr>
-                    <tr class="takedown-row">
+                    <tr data-step-id="3.05" class="takedown-row">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">3.05</td>
-                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Final Takedown</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold step-cell">Final Takedown<div class="complete-overlay">COMPLETE</div></td>
                         <td class="px-4 py-3 text-sm text-gray-500">Log into **Buildium** and **SDMLS** and officially change the status to "Leased" or "Off-Market."</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You) / Jon Agsalud</td>
                     </tr>
-                    <tr class="takedown-row">
+                    <tr data-step-id="3.06" class="takedown-row">
+                        <td class="px-2 py-3 text-center"><input type="checkbox" onchange="toggleComplete(this)" class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"></td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">3.06</td>
-                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold">Remove from all Sites</td>
+                        <td class="px-4 py-3 text-sm text-gray-900 font-semibold step-cell">Remove from all Sites<div class="complete-overlay">COMPLETE</div></td>
                         <td class="px-4 py-3 text-sm text-gray-500">Delete the posting on every single platform: Facebook, Instagram, Craigslist, Rental.com, Apartments.com.</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">User (You)</td>
                     </tr>
@@ -230,8 +292,51 @@
     </div>
 
 <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Load completion status from local storage when the page loads
+        loadCompletionStatus();
+    });
+
+    function toggleComplete(checkbox) {
+        const row = checkbox.closest('tr');
+        const stepId = row.dataset.stepId;
+        
+        if (checkbox.checked) {
+            row.classList.add('completed');
+            // Save state to local storage
+            localStorage.setItem('step_' + stepId, 'completed');
+        } else {
+            row.classList.remove('completed');
+            // Remove state from local storage
+            localStorage.removeItem('step_' + stepId);
+        }
+        // Re-apply filter in case the search bar is active
+        filterTable();
+    }
+
+    function loadCompletionStatus() {
+        const rows = document.querySelectorAll('#workflowTable tbody tr[data-step-id]');
+        rows.forEach(row => {
+            const stepId = row.dataset.stepId;
+            const checkbox = row.querySelector('input[type="checkbox"]');
+            
+            if (localStorage.getItem('step_' + stepId) === 'completed') {
+                row.classList.add('completed');
+                if (checkbox) {
+                    checkbox.checked = true;
+                }
+            } else {
+                row.classList.remove('completed');
+                if (checkbox) {
+                    checkbox.checked = false;
+                }
+            }
+        });
+    }
+
     /**
      * JavaScript function to filter the table rows based on the search input.
+     * Updated to ignore the 'completed' class when searching.
      */
     function filterTable() {
         var input, filter, table, tr, td, i, j, txtValue;
@@ -240,30 +345,35 @@
         table = document.getElementById("workflowTable");
         tr = table.getElementsByTagName("tr");
 
-        // Loop through all table rows (starting at 1 to skip header)
+        // Loop through all table rows 
         for (i = 0; i < tr.length; i++) {
-            // Check if the current row is a section header (we don't want to hide these)
+            // Skip section headers
             if (tr[i].getElementsByTagName("td")[0] && tr[i].getElementsByTagName("td")[0].classList.contains('section-header')) {
+                tr[i].style.display = "";
                 continue;
             }
             
-            // Assume the row should be hidden unless a match is found
             var rowMatch = false;
             
             // Loop through all table cells (td) in the current row
             td = tr[i].getElementsByTagName("td");
-            for (j = 0; j < td.length; j++) {
+            // Start j=1 to skip the checkbox cell in the search text
+            for (j = 1; j < td.length; j++) { 
                 if (td[j]) {
-                    txtValue = td[j].textContent || td[j].innerText;
-                    // Check if the current cell value matches the filter
+                    // Temporarily remove the 'COMPLETE' overlay text from the search value
+                    let cellContent = td[j].textContent || td[j].innerText;
+                    if (td[j].classList.contains('step-cell')) {
+                        cellContent = cellContent.replace('COMPLETE', '').trim();
+                    }
+                    txtValue = cellContent;
+
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
                         rowMatch = true;
-                        break; // Exit the inner loop once a match is found in the row
+                        break; 
                     }
                 }
             }
 
-            // Display or hide the row based on the search result
             if (rowMatch) {
                 tr[i].style.display = "";
             } else {
@@ -275,6 +385,7 @@
 
 </body>
 </html>
+
 
 </body>
 </html>
